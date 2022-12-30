@@ -1,9 +1,10 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { IIdEntity } from '../../../shared/interfaces/id-entity';
 
 @Entity()
-export class Product {
+export class Product extends BaseEntity implements IIdEntity {
   @PrimaryGeneratedColumn('uuid')
-  id: number;
+  id: string;
 
   @Column()
   name: string;
